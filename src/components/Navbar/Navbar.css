@@ -1,0 +1,17 @@
+.navbar {
+    position: fixed;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+}
+
+.navbar-nav {
+    font-weight: bold;
+}
+
+
