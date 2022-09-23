@@ -1,0 +1,15 @@
+.carrito {
+    font-weight: bolder;
+    color: #ffffff;
+    margin-right: 3rem;
+}
+
+.carrito button {
+    background: #00000050;
+    padding-right: 0.8rem;
+    border-radius: 50px;
+}
+
+.imagenCarrito {
+    width: 3rem;
+}

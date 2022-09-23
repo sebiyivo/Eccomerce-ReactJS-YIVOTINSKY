@@ -12,6 +12,11 @@
 
 .navbar-nav {
     font-weight: bold;
+    gap: 2rem;
 }
 
-
+.navbar button {
+    background: none;
+    border: 0;
+    color: #ffffff;
+}
