@@ -1,0 +1,20 @@
+.botonAgregarAlCarrito {
+   margin-top: 0.5rem;
+}
+
+.botonAgregarAlCarrito button {
+  font-weight: bold;
+}
+
+.input-group {
+    justify-content: center;
+}
+
+.botonItemCount {
+ font-weight: bolder;
+}
+
+.inputItemCount {
+    text-align: center;
+    border-color: #0d6efd;
+}
