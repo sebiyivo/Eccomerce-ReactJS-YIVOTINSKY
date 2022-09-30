@@ -9,11 +9,10 @@ function App() {
     console.log("AGREGASTE " + cantidad + " AL CARRITO");
   }
 
-
   return (
     <div className="App">
       <Navbar />
-      <ItemListContainer greeting={"NUEVA TIENDA CON REACT"}/>
+      <ItemListContainer greeting={"LISTA DE PRODUCTOS"}/>
       <ItemCount inicial={1} stock={10} onAdd={HandleOnAdd}/>
     </div>
   );

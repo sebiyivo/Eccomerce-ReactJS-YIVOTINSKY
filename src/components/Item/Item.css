@@ -1,0 +1,18 @@
+.card {
+    border: #0000ff solid !important;
+}
+
+.card-body {
+    border-top: #0000ff solid;
+    font-weight: bolder;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-price {
+    color: #0b950b;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

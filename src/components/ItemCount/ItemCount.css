@@ -1,9 +1,10 @@
-.botonAgregarAlCarrito {
-   margin-top: 0.5rem;
+.itemCount {
+  text-align: center;
 }
 
-.botonAgregarAlCarrito button {
-  font-weight: bold;
+.botonAgregarAlCarrito {
+  margin-top: 0.5rem;
+  font-weight: bolder !important;
 }
 
 .input-group {
