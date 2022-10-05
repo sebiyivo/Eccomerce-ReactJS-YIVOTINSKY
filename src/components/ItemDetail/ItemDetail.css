@@ -1,0 +1,36 @@
+.detail {
+    border: #0000ff solid !important;
+}
+
+.detail-body {
+    border-top: none;
+}
+
+.detail-title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.detail-title {
+    font-size: 1.5rem;
+}
+
+.detail-description {
+    color: #818181;
+}
+
+.detail-category {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.detail-price {
+    color: #0b950b;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.detail-img {
+    border: #0000ff solid !important;
+    display: flex;
+}

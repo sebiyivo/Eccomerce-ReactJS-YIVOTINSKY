@@ -1,0 +1,11 @@
+.itemDetailContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.spinner-border {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+}

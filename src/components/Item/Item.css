@@ -1,3 +1,7 @@
+.item:hover {
+    cursor: pointer;
+}
+
 .card {
     border: #0000ff solid !important;
 }
