@@ -1,7 +1,4 @@
 .itemList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5rem;
-    margin-bottom: 2rem;
+   margin-bottom: 2rem;
+   justify-content: center;
 }

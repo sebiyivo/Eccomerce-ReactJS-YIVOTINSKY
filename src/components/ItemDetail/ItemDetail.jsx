@@ -8,7 +8,7 @@ const ItemDetail = ({ name, price, category, img, description }) => {
     }
 
     return (
-        <div className="card mb-3" style={{maxWidth: 540}}>
+        <div className="card detail-card mb-3">
           <div className="row g-0">
             <div className="col-md-5 detail-img">
               <img src={img} className="img-fluid rounded-start" alt={name}/>

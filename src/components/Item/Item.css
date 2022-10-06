@@ -1,9 +1,15 @@
 .item:hover {
     cursor: pointer;
+    transition: 1s;
+    transform: scale(1.05);
 }
 
 .card {
     border: #0000ff solid !important;
+    margin-block: 2rem;
+    margin-inline: 0.5rem;
+    box-shadow: 5px 5px 5px #999;
+    filter: shadow(color=#999999, direction=135, strength=2);
 }
 
 .card-body {
