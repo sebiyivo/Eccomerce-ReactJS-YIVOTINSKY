@@ -1,0 +1,108 @@
+.miCarrito {
+    margin-block: 2rem;
+    font-size: 4rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #000000;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6895f6, 0 0 20px #0051ff, 0 0 25px #1100ff;
+    text-align: center;
+}
+
+tbody {
+    color: #0000ff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+th {
+    text-align: center !important;
+    font-size: 1.2rem;
+}
+
+th img {
+    width: 6rem;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.botonEliminar {
+    background: linear-gradient(to bottom, #ff0000, #ff0000af, #ff000044);
+    color: #000000;
+}
+
+.botonEliminar:active {
+    transform: scale(0.9);
+}
+
+/* //////////////////////// CALCULO //////////////////////////////// */
+
+.calculo {
+    border-bottom: #0000ff solid;
+    border-top: #0000ff solid;
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+    color: #0000ff;
+    font-weight: bold;
+}
+
+.calculo ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.calculo ul li {
+    font-size: 1.5rem;
+}
+
+/* //////////////////////// BOTONES //////////////////////////////// */
+
+.botonesCarrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+.botonVolverALaTienda {
+    background: linear-gradient(to bottom, #0008ff, #0d00ffaf, #0000ff44);
+    color: #ffffff !important;
+    margin-right: 1rem;
+}
+
+.botonVolverALaTienda:active {
+    transform: scale(0.9);
+}
+
+.botonesCarritoPrincipales {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.botonVaciarCarrito {
+    background: linear-gradient(to bottom, #ff9500, #ff9d00af, #ff9d0044);
+    color: #000000;
+    margin-right: 1rem;
+}
+
+.botonVaciarCarrito:active {
+    transform: scale(0.9);
+}
+
+.botonComprar {    
+    background: linear-gradient(to bottom, #00ff00, #15ff00af, #15ff0044);
+    color: #000000;
+    font-weight: bolder !important;
+    font-size: 1.2rem;
+}
+
+.botonComprar:active {
+    transform: scale(0.9);
+}

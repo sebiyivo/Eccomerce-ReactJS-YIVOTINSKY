@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
     return (
-
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
             <NavLink to={"/"} className="navbar-brand">TiendaJS</NavLink>
@@ -13,9 +12,9 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <NavLink to={"category/Celulares"} className="nav-link" aria-current="page">Celulares</NavLink>
-                <NavLink to={"category/Televisores"} className="nav-link">Televisores</NavLink>
-                <NavLink to={"category/Notebooks"} className="nav-link">Notebooks</NavLink>
+                <NavLink to={"/category/Celulares"} className="nav-link" aria-current="page">Celulares</NavLink>
+                <NavLink to={"/category/Televisores"} className="nav-link">Televisores</NavLink>
+                <NavLink to={"/category/Notebooks"} className="nav-link">Notebooks</NavLink>
               </div>
             </div>
             <CartWidget />

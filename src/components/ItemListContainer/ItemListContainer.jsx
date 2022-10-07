@@ -24,7 +24,7 @@ const ItemListContainer = () => {
     if (loading) {
         return (
         <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
+            <span className="visually-hidden"></span>
         </div>
         )
     }

@@ -1,0 +1,15 @@
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    gap: 2rem;
+    background-color: #00a2ff;
+    margin-bottom: 0;
+}
+
+footer li {
+    color: #ffffff;
+    text-decoration: none;
+}
