@@ -2,6 +2,15 @@
     text-align: center;
 }
 
+.itemListContainer h1 {
+    margin-block: 2rem;
+    font-size: 4rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #000000;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6895f6, 0 0 20px #0051ff, 0 0 25px #1100ff;
+}
+
 .spinner-border {
     position: fixed;
     top: 25%;

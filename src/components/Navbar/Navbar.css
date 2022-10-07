@@ -10,6 +10,15 @@
     font-weight: bolder;
 }
 
+.nav-link {
+    color: #616161;
+}
+
+.nav-link:hover {
+    transition: 1s;
+    transform: scale(1.2);
+}
+
 .navbar-nav {
     font-weight: bold;
     gap: 2rem;

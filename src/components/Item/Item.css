@@ -10,6 +10,7 @@
     margin-inline: 0.5rem;
     box-shadow: 5px 5px 5px #999;
     filter: shadow(color=#999999, direction=135, strength=2);
+    text-decoration: none;
 }
 
 .card-body {
@@ -19,10 +20,15 @@
 
 .card-title {
     font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.card-text {
+    font-weight: bolder;
 }
 
 .card-price {
     color: #0b950b;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: bolder;
 }

@@ -1,5 +1,5 @@
 .detail-card {
-    max-width: 50rem;
+    max-width: 60rem;
 }
 
 .detail {
@@ -12,23 +12,24 @@
 }
 
 .detail-title {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bolder;
 }
 
 .detail-description {
     color: #818181;
     font-size: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .detail-category {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .detail-price {
     color: #0b950b;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
