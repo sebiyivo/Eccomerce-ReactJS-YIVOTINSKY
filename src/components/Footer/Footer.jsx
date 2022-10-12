@@ -3,8 +3,8 @@ import "./Footer.css"
 const Footer = () => {
 
     return (
-        <footer class="container-fluid">
-            <div class="row">
+        <footer className="container-fluid">
+            <div className="row">
               <ul>
                 <li>©2022 Todos los derechos reservados.</li>
                 <li>|</li>

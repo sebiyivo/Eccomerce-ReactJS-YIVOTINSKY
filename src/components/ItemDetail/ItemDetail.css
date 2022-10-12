@@ -37,3 +37,8 @@
     border: #0000ff solid !important;
     display: flex;
 }
+
+.botonTerminarCompra {
+    margin-top: 3rem;
+    font-weight: bolder !important;
+}

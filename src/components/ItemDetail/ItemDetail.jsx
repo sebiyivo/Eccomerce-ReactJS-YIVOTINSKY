@@ -1,10 +1,17 @@
 import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css"
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({ name, price, category, img, description }) => {
+const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
+    const [goToCart, setgoToCart] = useState(false)
 
-    const HandleOnAdd = (cantidad) => {
-      console.log("AGREGASTE " + cantidad + " AL CARRITO");
+    const HandleOnAdd = (quantity) => {
+      setgoToCart(true)
+      const productToAdd = {
+        id, img, name, price
+      }
+      console.log(productToAdd);
     }
 
     return (
@@ -19,7 +26,7 @@ const ItemDetail = ({ name, price, category, img, description }) => {
                 <p className="detail-description">{description}</p>
                 <p className="detail-category">{category}</p>
                 <h6 className="detail-price">${price}</h6>
-                <ItemCount inicial={1} stock={10} onAdd={HandleOnAdd}/>
+                {goToCart ? <Link to={"/cart"} className="botonTerminarCompra btn btn-outline-success">TERMINAR MI COMPRA</Link> : <ItemCount inicial={1} stock={stock} onAdd={HandleOnAdd}/>}
               </div>
             </div>
           </div>
