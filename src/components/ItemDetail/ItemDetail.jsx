@@ -2,17 +2,25 @@ import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
     const [goToCart, setgoToCart] = useState(false)
 
+    const { addItem } = useContext(CartContext)
+
     const HandleOnAdd = (quantity) => {
+
       setgoToCart(true)
+
       const productToAdd = {
-        id, img, name, price
+        id, img, name, price, quantity
       }
-      console.log(productToAdd);
+      
+      addItem(productToAdd);
     }
+
 
     return (
         <div className="card detail-card mb-3">
