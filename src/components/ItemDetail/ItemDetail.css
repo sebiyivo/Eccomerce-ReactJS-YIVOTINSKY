@@ -38,7 +38,15 @@
     display: flex;
 }
 
-.botonTerminarCompra {
-    margin-top: 3rem;
+.botonesItemDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.botonTerminarCompra, .botonSeguirCompra {
     font-weight: bolder !important;
 }

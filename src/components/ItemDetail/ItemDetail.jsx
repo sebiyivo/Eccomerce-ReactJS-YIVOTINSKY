@@ -34,7 +34,10 @@ const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
                 <p className="detail-description">{description}</p>
                 <p className="detail-category">{category}</p>
                 <h6 className="detail-price">${price}</h6>
-                {goToCart ? <Link to={"/cart"} className="botonTerminarCompra btn btn-outline-success">TERMINAR MI COMPRA</Link> : <ItemCount inicial={1} stock={stock} onAdd={HandleOnAdd}/>}
+                {goToCart ? <div className='botonesItemDetail'>
+                            <Link to={"/"} className="botonSeguirCompra btn btn-outline-primary">SEGUIR COMPRANDO</Link>
+                            <Link to={"/cart"} className="botonTerminarCompra btn btn-outline-success">TERMINAR MI COMPRA</Link>
+                            </div> : <ItemCount inicial={1} stock={stock} onAdd={HandleOnAdd}/>}
               </div>
             </div>
           </div>

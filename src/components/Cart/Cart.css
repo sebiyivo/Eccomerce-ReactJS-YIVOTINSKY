@@ -1,4 +1,17 @@
-.miCarrito {
+.sinProductos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30rem;
+}
+
+.botonIrALaTienda {
+    background: linear-gradient(to bottom, #0008ff, #0d00ffaf, #0000ff44);
+    color: #ffffff !important;
+}
+
+.miCarrito, .noProductos {
     margin-block: 2rem;
     font-size: 4rem;
     font-weight: bolder;
