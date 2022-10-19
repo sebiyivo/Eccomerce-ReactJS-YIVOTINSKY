@@ -17,7 +17,7 @@ const ItemCart = ({id, name, price, img , quantity}) => {
             color: '#001fff',
             title: '¿Esta seguro que desea eliminar el producto?',
             icon: 'warning',
-            iconColor: '#ff0000',
+            iconColor: '#ffa200',
             showCancelButton: true,
             confirmButtonColor: '#00b400',
             cancelButtonColor: '#ff0000af',
