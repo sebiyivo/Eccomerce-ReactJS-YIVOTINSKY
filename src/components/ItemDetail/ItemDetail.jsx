@@ -4,15 +4,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
     const [goToCart, setgoToCart] = useState(false)
 
     const { addItem } = useContext(CartContext)
-
-    const MySwal = withReactContent(Swal)
 
     const HandleOnAdd = (quantity) => {
 
@@ -23,18 +19,6 @@ const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
       }
       
       addItem(productToAdd);
-
-      // MySwal.fire({
-      //   background: '#ffffff',
-      //   color: '#001fff',
-      //   position: 'center',
-      //   icon: 'success',
-      //   iconColor: '#11cf00',
-      //   title: 'Agregado!',
-      //   html: <h4>Se agregaron "{quantity}" {name} al carrito</h4>,
-      //   showConfirmButton: false,
-      //   timer: 2000
-      // })
 
     }
 
