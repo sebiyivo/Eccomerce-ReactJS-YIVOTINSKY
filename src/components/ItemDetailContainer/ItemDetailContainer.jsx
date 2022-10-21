@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import { getProductById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 import { useParams } from "react-router-dom"
+import { db } from "../../services/firebase"
+import { getDoc, doc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [product, setproduct] = useState({})
@@ -12,13 +13,21 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
       setLoading(true)
-      getProductById(productId).then(response => {
-        setproduct(response)
+
+      const docRef = doc(db, "products", productId)
+
+      getDoc(docRef).then(response => {
+        const data = response.data()
+        const productAdapted = { id: response.id, ...data }
+        setproduct(productAdapted)
+      }).catch(error => {
+        console.log(error)  
       }).finally(() => {
         setLoading(false)
       })
     }, [productId])
     
+
     if (loading) {
         return (
         <div className="spinner-border text-primary" role="status">
