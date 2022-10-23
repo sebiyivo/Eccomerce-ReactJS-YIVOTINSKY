@@ -1,8 +1,27 @@
 import "./Navbar.css"
 import CartWidget from "../CartWidget/CartWidget"
 import { NavLink } from "react-router-dom"
+import { getDocs, collection, query, orderBy } from "firebase/firestore"
+import { db } from "../../services/firebase"
+import { useState, useEffect } from "react"
 
 const Navbar = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+      const collectionRef = query(collection(db, "categories"), orderBy("order"))
+      
+      getDocs(collectionRef).then(response => {
+        const categoriesAdapted = response.docs.map(doc => {
+          const data = doc.data()
+          const id = doc.id
+
+          return { id, ...data }
+        })
+        setCategories(categoriesAdapted)
+      })
+    }, [])
+    
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
@@ -12,9 +31,10 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <NavLink to={"/category/Celulares"} className="nav-link" aria-current="page">Celulares</NavLink>
-                <NavLink to={"/category/Televisores"} className="nav-link">Televisores</NavLink>
-                <NavLink to={"/category/Notebooks"} className="nav-link">Notebooks</NavLink>
+                {categories.map(category => (
+                  <NavLink to={`/category/${category.slug}`} className="nav-link" aria-current="page">{category.label}</NavLink>
+                  ))
+                }
               </div>
             </div>
             <CartWidget />

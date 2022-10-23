@@ -15,8 +15,8 @@ export const CartProvider = ({children}) => {
       const totalQty = getQuantity()
       const totalPriceFinal = getTotalPrice()
       setTotalQuantity(totalQty)
-      setTotalPrice(totalPriceFinal)
-    }, [cart])
+      setTotalPrice(totalPriceFinal) // eslint-disable-next-line
+    }, [cart]) 
     
     const addItem = (productToAdd) => {
 
@@ -48,13 +48,73 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    const removeItem = (id) => {
-        const cartWithoutProduct = cart.filter(prod => prod.id !== id)
-        setCart(cartWithoutProduct)
+    const removeItem = (id, name) => {
+
+        MySwal.fire({
+            background: '#ffffff',
+            color: '#001fff',
+            title: '¿Esta seguro que desea eliminar el producto?',
+            icon: 'warning',
+            iconColor: '#ffa200',
+            showCancelButton: true,
+            confirmButtonColor: '#00b400',
+            cancelButtonColor: '#ff0000af',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Si, eliminarlo'
+          }).then((result) => {
+
+            if (result.isConfirmed) {
+              const cartWithoutProduct = cart.filter(prod => prod.id !== id)
+              setCart(cartWithoutProduct)
+              
+              MySwal.fire({
+                background: '#ffffff',
+                color: '#001fff',
+                icon: 'success',
+                iconColor: '#11cf00',
+                title: 'Eliminado!',
+                html: <h4>El producto {name} ha sido eliminado del carrito</h4>,
+                confirmButtonColor: '#11cf00',
+                },
+                'success'
+              )
+            }
+            }
+        )    
     }
 
-    const clearCart = () => setCart([])
-
+    const clearCart = () => {
+        
+        MySwal.fire({
+            background: '#ffffff',
+            color: '#001fff',
+            title: '¿Esta seguro que desea vaciar el carrito?',
+            icon: 'warning',
+            iconColor: '#ffa200',
+            showCancelButton: true,
+            confirmButtonColor: '#00b400',
+            cancelButtonColor: '#ff0000af',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Confirmar'
+          }).then((result) => {
+    
+            if (result.isConfirmed) {
+              MySwal.fire({
+                background: '#ffffff',
+                color: '#001fff',
+                icon: 'success',
+                iconColor: '#11cf00',
+                title: 'Vaciado!',
+                html: <h4>El carrito ha sido limpiado</h4>,
+                confirmButtonColor: '#11cf00',
+                },
+                'success'
+              )  
+    
+              setCart([])
+            }
+          }) 
+    }
 
 
     const isInCart = (id) => {
