@@ -37,7 +37,7 @@ const ItemDetail = ({ id, name, price, category, img, stock, description }) => {
                 {goToCart ? <div className='botonesItemDetail'>
                             <Link to={"/"} className="botonSeguirCompra btn btn-outline-primary">SEGUIR COMPRANDO</Link>
                             <Link to={"/cart"} className="botonTerminarCompra btn btn-outline-success">TERMINAR MI COMPRA</Link>
-                            </div> : <ItemCount inicial={1} stock={stock} onAdd={HandleOnAdd}/>}
+                            </div> : stock !== 0 ? <ItemCount inicial={1} stock={stock} onAdd={HandleOnAdd}/> : <p className='noStock'>NO HAY STOCK</p>}
               </div>
             </div>
           </div>

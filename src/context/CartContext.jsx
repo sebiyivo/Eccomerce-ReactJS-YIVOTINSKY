@@ -83,39 +83,7 @@ export const CartProvider = ({children}) => {
         )    
     }
 
-    const clearCart = () => {
-        
-        MySwal.fire({
-            background: '#ffffff',
-            color: '#001fff',
-            title: '¿Esta seguro que desea vaciar el carrito?',
-            icon: 'warning',
-            iconColor: '#ffa200',
-            showCancelButton: true,
-            confirmButtonColor: '#00b400',
-            cancelButtonColor: '#ff0000af',
-            cancelButtonText: 'Cancelar',
-            confirmButtonText: 'Confirmar'
-          }).then((result) => {
-    
-            if (result.isConfirmed) {
-              MySwal.fire({
-                background: '#ffffff',
-                color: '#001fff',
-                icon: 'success',
-                iconColor: '#11cf00',
-                title: 'Vaciado!',
-                html: <h4>El carrito ha sido limpiado</h4>,
-                confirmButtonColor: '#11cf00',
-                },
-                'success'
-              )  
-    
-              setCart([])
-            }
-          }) 
-    }
-
+    const clearCart = () => setCart([])  
 
     const isInCart = (id) => {
         return cart.some(prod => prod.id === id)

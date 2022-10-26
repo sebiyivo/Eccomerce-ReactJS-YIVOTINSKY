@@ -3,10 +3,14 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import ItemCart from "../ItemCart/ItemCart"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const Cart = () => {
 
     const { cart, totalPrice, clearCart } = useContext(CartContext)
+
+    const MySwal = withReactContent(Swal)
 
     if (cart.length === 0) {
       return (
@@ -16,6 +20,39 @@ const Cart = () => {
         </div>
       )
     }
+
+   const vaciarCarrito = () => {
+      MySwal.fire({
+        background: '#ffffff',
+        color: '#001fff',
+        title: '¿Esta seguro que desea vaciar el carrito?',
+        icon: 'warning',
+        iconColor: '#ffa200',
+        showCancelButton: true,
+        confirmButtonColor: '#00b400',
+        cancelButtonColor: '#ff0000af',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Confirmar'
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          MySwal.fire({
+            background: '#ffffff',
+            color: '#001fff',
+            icon: 'success',
+            iconColor: '#11cf00',
+            title: 'Vaciado!',
+            html: <h4>El carrito ha sido limpiado</h4>,
+            confirmButtonColor: '#11cf00',
+            },
+            'success'
+          )  
+          clearCart()
+        }
+      }) 
+    }
+      ///// EL ALERT DE VACIAR CARRITO LO DEJO ACA PORQUE SI NO AL GENERAR LA COMPRA SALTA LA ALERTA DE SI QUERES VACIAR EL CARRITO //////////// 
+
 
     return (
         <div className="container">
@@ -58,8 +95,8 @@ const Cart = () => {
                 <div className="botonesCarrito">
                   <Link to={"/"} className="btn botonVolverALaTienda">Volver a la tienda</Link>
                   <div className="botonesCarritoPrincipales">
-                    <input onClick={() => clearCart()} id="vaciarCarrito" className="btn botonVaciarCarrito" type="button" value="VACIAR CARRITO"/>
-                    <input id="comprar" className="btn botonComprar" type="button" value="COMPRAR" data-bs-toggle="modal" data-bs-target="#exampleModal"/>  
+                    <input onClick={() => vaciarCarrito()} id="vaciarCarrito" className="btn botonVaciarCarrito" type="button" value="VACIAR CARRITO"/>
+                    <Link to={"/checkout"} className="btn botonComprar" type="button">COMPRAR</Link>
                   </div>
                 </div>
             </div>

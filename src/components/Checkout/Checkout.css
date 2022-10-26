@@ -1,0 +1,57 @@
+.divCheckout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.checkout {
+    margin-block: 2rem;
+    font-size: 4rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #000000;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6895f6, 0 0 20px #0051ff, 0 0 25px #1100ff;
+    text-align: center 
+}
+
+.formulario {
+    width: max-content;
+    border: #1100ff solid;
+    background-color: #a4a4a4;
+    padding: 3rem;
+    border-radius: 2%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-floating {
+    width: 30rem;
+}
+
+.totalCheckout {
+    color: #0000ff;
+    font-weight: bolder;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.botonFinalizarCompra {    
+    background: linear-gradient(to bottom, #00ff00, #15ff00af, #15ff0044);
+    color: #000000;
+    font-weight: bolder !important;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 16rem;
+    height: 3rem;
+}
+
+.spinner-order {
+    position: fixed;
+    top: 25%;
+    left: 40%;
+}
