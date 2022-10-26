@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 {categories.map(category => (
-                  <NavLink to={`/category/${category.slug}`} className="nav-link" aria-current="page">{category.label}</NavLink>
+                  <NavLink key={category.id} to={`/category/${category.slug}`} className="nav-link" aria-current="page">{category.label}</NavLink>
                   ))
                 }
               </div>

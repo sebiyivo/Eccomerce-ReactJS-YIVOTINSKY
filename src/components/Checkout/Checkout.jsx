@@ -29,7 +29,9 @@ const Checkout = () => {
                     phone: tel,
                     mail: email
                 },
-                items: cart,
+                items: cart.map(prod => ({ id: prod.id, title: prod.name, price: prod.price, quantity: prod.quantity })),
+                subtotal: totalPrice,
+                iva: totalPrice * 0.21,
                 total: totalPrice * 1.21
             }
             
@@ -70,7 +72,7 @@ const Checkout = () => {
 
                 setTimeout(() => {
                     navigate('/')
-                }, 3000)
+                }, 1500)
 
                 MySwal.fire({
                     background: '#ffffff',
@@ -127,7 +129,7 @@ const Checkout = () => {
     return (
         <div className="divCheckout">
             <h2 className="checkout">CHECKOUT</h2>
-            <div className="formulario">
+            <form className="formulario">
                 <div className="form-floating mb-4">
                   <input onChange={(e) => setName(e.target.value)} type="text" className="form-control" id="floatingNombre" placeholder="Nombre Y Apellido"/>
                   <label for="floatingNombre">Nombre Y Apellido</label>
@@ -142,7 +144,7 @@ const Checkout = () => {
                 </div>
                 <label className="totalCheckout">TOTAL: ${totalPrice * 1.21}</label>
                 <button className="btn botonFinalizarCompra" type="button" onClick={createOrder}>FINALIZAR COMPRA</button>
-            </div>
+            </form>
         </div>
     )
 }
