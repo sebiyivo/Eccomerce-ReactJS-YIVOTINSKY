@@ -4,6 +4,8 @@ import "./ItemListContainer.css"
 import { useParams } from "react-router-dom"
 import { db } from "../../services/firebase"
 import { getDocs, collection, query, where } from "firebase/firestore"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const ItemListContainer = () => {
     const [products, setproducts] = useState([])
@@ -13,6 +15,8 @@ const ItemListContainer = () => {
 
     useEffect(() => {
       setLoading(true)
+
+      const MySwal = withReactContent(Swal)
   
       const collectionRef = categoryId 
         ? query(collection(db, "products"), where("category", "==", categoryId))
@@ -24,8 +28,17 @@ const ItemListContainer = () => {
           return { id: doc.id, ...data }
         })
         setproducts(productsAdapted)
-      }).catch(error => {
-        console.log(error)  
+      }).catch(() => {
+        MySwal.fire({
+          background: '#ffffff',
+          color: '#001fff',
+          position: 'center',
+          icon: 'error',
+          iconColor: '#ff0000',
+          title: 'No se puedo realizar la solicitud de los productos',
+          showConfirmButton: false,
+          timer: 4000
+        }) 
       }).finally(() => {
         setLoading(false)
       })} , [categoryId])
