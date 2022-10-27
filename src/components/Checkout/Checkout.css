@@ -19,13 +19,17 @@
 .formulario {
     width: max-content;
     border: #1100ff solid;
-    background-color: #c9c9c9;
+    background-color: hsl(0, 0%, 90%);
     padding: 3rem;
     border-radius: 2%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.formulario img {
+    width: 30rem;
 }
 
 .form-floating {
@@ -44,10 +48,15 @@
     background: linear-gradient(to bottom, #00ff00, #15ff00af, #15ff0044);
     color: #000000;
     font-weight: bolder !important;
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     text-align: center;
     width: 16rem;
     height: 3rem;
+}
+
+.botonFinalizarCompra:hover {
+    transition: 1s;
+    transform: scale(1.1);
 }
 
 .spinner-order {

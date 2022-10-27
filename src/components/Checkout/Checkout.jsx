@@ -142,6 +142,7 @@ const Checkout = () => {
                   <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="floatingEmail" placeholder="Correo Electronico"/>
                   <label for="floatingEmail">Correo Electronico</label>
                 </div>
+                <img src="https://www.edstiendas.org.ar/wp-content/uploads/2021/01/formas-pago-3.png" alt="Metodos de pago" title="Metodos de pago"/>
                 <label className="totalCheckout">TOTAL: ${totalPrice * 1.21}</label>
                 <button className="btn botonFinalizarCompra" type="button" onClick={createOrder}>FINALIZAR COMPRA</button>
             </form>
