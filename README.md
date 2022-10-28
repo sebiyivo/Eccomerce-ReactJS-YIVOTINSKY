@@ -12,14 +12,14 @@ AL INICIALIZAR EL PROYECTO SIEMPRE UBICARSE EN LA CARPETA \eccomerce
 
 3) Generar los documentos necesarios para cada coleccion con los siguientes nombres en los campos:
 
-                            | categories | products |
-                            | ------ | ------ |
-                            | label | category |
-                            | order | description |
-                            | slug | img |
-                            |  | name |
-                            |  | price |
-                            |  | stock |
+| categories | products |
+| ------ | ------ |
+| label | category |
+| order | description |
+| slug | img |
+|  | name |
+|  | price |
+|  | stock |
 
 4) Dentro del proyecto crear un archivo ".env" a la altura del package.json
 
