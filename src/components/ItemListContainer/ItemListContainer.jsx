@@ -1,48 +1,19 @@
-import { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 import { useParams } from "react-router-dom"
-import { db } from "../../services/firebase"
-import { getDocs, collection, query, where } from "firebase/firestore"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { getProducts } from "../../services/firebase/firestore/products"
+import { useAsync } from "../../hooks/useAsync"
 
 const ItemListContainer = () => {
-    const [products, setproducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
     const {categoryId} = useParams()
 
-    useEffect(() => {
-      setLoading(true)
+    const getProductsWithCategory = () => getProducts(categoryId)
 
-      const MySwal = withReactContent(Swal)
-  
-      const collectionRef = categoryId 
-        ? query(collection(db, "products"), where("category", "==", categoryId))
-        : collection(db, "products")
+    const { data: products, error, loading } = useAsync(getProductsWithCategory, [categoryId])
 
-      getDocs(collectionRef).then(response => {
-        const productsAdapted = response.docs.map(doc => {
-          const data = doc.data()
-          return { id: doc.id, ...data }
-        })
-        setproducts(productsAdapted)
-      }).catch(() => {
-        MySwal.fire({
-          background: '#ffffff',
-          color: '#001fff',
-          position: 'center',
-          icon: 'error',
-          iconColor: '#ff0000',
-          title: 'No se puedo realizar la solicitud de los productos',
-          showConfirmButton: false,
-          timer: 4000
-        }) 
-      }).finally(() => {
-        setLoading(false)
-      })} , [categoryId])
-      
+    const MySwal = withReactContent(Swal)
 
     if (loading) {
         return (
@@ -50,6 +21,20 @@ const ItemListContainer = () => {
             <span className="visually-hidden"></span>
         </div>
         )
+    }
+
+    if (error) {
+      return  MySwal.fire({
+        background: '#ffffff',
+        color: '#001fff',
+        position: 'center',
+        icon: 'error',
+        iconColor: '#ff0000',
+        title: 'No se puedo realizar la solicitud de los productos',
+        showConfirmButton: false,
+        timer: 4000
+      }) 
+  
     }
 
     return (
