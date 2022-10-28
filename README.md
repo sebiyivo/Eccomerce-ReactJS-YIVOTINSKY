@@ -2,6 +2,36 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## BASE DE DATOS / FIRESTORE
+
+AL INICIALIZAR EL PROYECTO SIEMPRE UBICARSE EN LA CARPETA \eccomerce
+
+1) Ingresar a la consola de Firebase (https://firebase.google.com/?hl=es-419&gclid=EAIaIQobChMIp4bntMqD-wIVwytMCh3nvgJ1EAAYASAAEgIkiPD_BwE&gclsrc=aw.ds)
+
+2) Generar una nueva Firebase Database y crear 2 colecciones (categories y products)
+
+3) Generar los documentos necesarios para cada coleccion con los siguientes nombres en los campos:
+
+| categories | products |
+| ------ | ------ |
+| label | category |
+| order | description |
+| slug | img |
+|  | name |
+|  | price |
+|  | stock |
+
+4) Dentro del proyecto crear un archivo ".env" a la altura del package.json
+
+5) Una vez dentro copiar los siguientes campos y reemplazar los numerales con los campos correspondientes del firebaseConfig que figura en la configuracion de la base de datos:
+
+REACT_APP_apiKey = ###
+REACT_APP_authDomain = ###
+REACT_APP_projectId = ###
+REACT_APP_storageBucket = ###
+REACT_APP_messagingSenderId = ###
+REACT_APP_appId = ###
+
 ## Available Scripts
 
 In the project directory, you can run:
