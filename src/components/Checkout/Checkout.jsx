@@ -6,6 +6,7 @@ import { db } from '../../services/firebase/index'
 import { useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Form from "../Form/Form"
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -129,25 +130,12 @@ const Checkout = () => {
     return (
         <div className="divCheckout">
             <h2 className="checkout">CHECKOUT</h2>
-            <form className="formulario">
-                <div className="form-floating mb-4">
-                  <input onChange={(e) => setName(e.target.value)} type="text" className="form-control" id="floatingNombre" placeholder="Nombre Y Apellido"/>
-                  <label for="floatingNombre">Nombre Y Apellido</label>
-                </div>
-                <div className="form-floating mb-4">
-                  <input onChange={(e) => setTel(e.target.value)} type="number" className="form-control" id="floatingTel" placeholder="Telefono"/>
-                  <label for="floatingTel">Telefono</label>
-                </div>
-                <div className="form-floating mb-4">
-                  <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="floatingEmail" placeholder="Correo Electronico"/>
-                  <label for="floatingEmail">Correo Electronico</label>
-                </div>
-                <img src="https://www.edstiendas.org.ar/wp-content/uploads/2021/01/formas-pago-3.png" alt="Metodos de pago" title="Metodos de pago"/>
-                <label className="totalCheckout">TOTAL: ${totalPrice * 1.21}</label>
-                <button className="btn botonFinalizarCompra" type="button" onClick={createOrder}>FINALIZAR COMPRA</button>
-            </form>
+            <Form setName={setName} setTel={setTel} setEmail={setEmail} createOrder={createOrder}/>
         </div>
     )
+    
 }
+
+
 
 export default Checkout
