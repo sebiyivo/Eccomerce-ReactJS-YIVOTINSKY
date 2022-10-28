@@ -94,7 +94,7 @@ const Checkout = () => {
                     icon: 'error',
                     iconColor: '#ff0000',
                     title: 'Error al generar la compra!',
-                    html: <h4>Hay productos fuera de stock</h4>,
+                    html: <h4>Los siguientes productos no cuentan con el stock solicitado: {outOfStock.map(prod => prod.name)}</h4>,
                     showConfirmButton: false,
                     timer: 4000
                   })
