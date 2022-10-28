@@ -1,6 +1,6 @@
 import "./Checkout.css"
-import { useState, useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import { useState } from "react"
+import { useCart } from "../../context/CartContext"
 import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from '../../services/firebase/index'
 import { useNavigate } from "react-router-dom"
@@ -13,7 +13,7 @@ const Checkout = () => {
     const [tel, setTel] = useState(0)
     const [email, setEmail] = useState("")
 
-    const { cart, totalPrice, clearCart } = useContext(CartContext)
+    const { cart, totalPrice, clearCart } = useCart()
 
     const MySwal = withReactContent(Swal)
 

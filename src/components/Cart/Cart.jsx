@@ -1,14 +1,13 @@
 import "./Cart.css"
 import { Link } from "react-router-dom"
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import { useCart } from "../../context/CartContext"
 import ItemCart from "../ItemCart/ItemCart"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const Cart = () => {
 
-    const { cart, totalPrice, clearCart } = useContext(CartContext)
+    const { cart, totalPrice, clearCart } = useCart()
 
     const MySwal = withReactContent(Swal)
 

@@ -1,10 +1,9 @@
 import "./ItemCart.css"
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import { useCart } from "../../context/CartContext"
 
 const ItemCart = ({id, name, price, img , quantity}) => {
 
-    const { removeItem } = useContext(CartContext)
+    const { removeItem } = useCart()
 
     return (
         <tr className="productoEnCarrito">
