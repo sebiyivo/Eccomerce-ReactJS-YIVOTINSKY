@@ -63,30 +63,46 @@ const Checkout = () => {
             })
 
             if(outOfStock.length === 0) {
-                await batch.commit()
+                if (name && tel && email) {
+                    await batch.commit()
 
-                const orderRef = collection(db, 'orders')
+                    const orderRef = collection(db, 'orders')
 
-                const orderAdded = await addDoc(orderRef, objOrder)
+                    const orderAdded = await addDoc(orderRef, objOrder)
 
-                clearCart()
+                    clearCart()
 
-                setTimeout(() => {
-                    navigate('/')
-                }, 1500)
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 1500)
 
-                MySwal.fire({
-                    background: '#ffffff',
-                    color: '#001fff',
-                    position: 'center',
-                    icon: 'success',
-                    iconColor: '#11cf00',
-                    title: 'Compra realizada con exito!',
-                    html: <h4>El id de su orden es: ${orderAdded.id}</h4>,
-                    showConfirmButton: true,
-                    confirmButtonColor: '#00b400',
-                    confirmButtonText: 'OK'
-                  })
+                    MySwal.fire({
+                        background: '#ffffff',
+                        color: '#001fff',
+                        position: 'center',
+                        icon: 'success',
+                        iconColor: '#11cf00',
+                        title: 'Compra realizada con exito!',
+                        html: <h4>El id de su orden es: ${orderAdded.id}</h4>,
+                        showConfirmButton: true,
+                        confirmButtonColor: '#00b400',
+                        confirmButtonText: 'OK'
+                      })
+
+                } else {
+                    MySwal.fire({
+                        background: '#ffffff',
+                        color: '#001fff',
+                        position: 'center',
+                        icon: 'warning',
+                        iconColor: '#ff0000',
+                        title: 'Incompleto!',
+                        html: <h4>Complete todos los campos del formulario antes de continuar</h4>,
+                        showConfirmButton: false,
+                        timer: 2500
+                        })   
+                }
+                
             } else {
                 MySwal.fire({
                     background: '#ffffff',
