@@ -1,6 +1,6 @@
 import { useCart } from "../../context/CartContext"
 
-const Form = ({ setName, setTel, setEmail, createOrder }) => {
+const Form = ({ setName, setTel, setEmail, setConfEmail, createOrder }) => {
     const { totalPrice } = useCart()
 
 
@@ -17,6 +17,10 @@ const Form = ({ setName, setTel, setEmail, createOrder }) => {
                 <div className="form-floating mb-4">
                   <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="floatingEmail" placeholder="Correo Electronico"/>
                   <label for="floatingEmail">Correo Electronico</label>
+                </div>
+                <div className="form-floating mb-4">
+                  <input onChange={(e) => setConfEmail(e.target.value)} type="email" className="form-control" id="floatingEmail" placeholder="Confirmacion Correo Electronico"/>
+                  <label for="floatingEmail">Confirmación Correo Electronico</label>
                 </div>
                 <img src="https://www.edstiendas.org.ar/wp-content/uploads/2021/01/formas-pago-3.png" alt="Metodos de pago" title="Metodos de pago"/>
                 <label className="totalCheckout">TOTAL: ${totalPrice * 1.21}</label>

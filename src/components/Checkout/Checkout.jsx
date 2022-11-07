@@ -13,6 +13,7 @@ const Checkout = () => {
     const [name, setName] = useState("")
     const [tel, setTel] = useState(0)
     const [email, setEmail] = useState("")
+    const [confEmail, setConfEmail] = useState("")
 
     const { cart, totalPrice, clearCart } = useCart()
 
@@ -63,7 +64,36 @@ const Checkout = () => {
             })
 
             if(outOfStock.length === 0) {
-                if (name && tel && email) {
+                if (!name || !tel || !email || !confEmail) {
+
+                    MySwal.fire({
+                        background: '#ffffff',
+                        color: '#001fff',
+                        position: 'center',
+                        icon: 'warning',
+                        iconColor: '#ff0000',
+                        title: 'Incompleto!',
+                        html: <h4>Complete todos los campos del formulario antes de continuar</h4>,
+                        showConfirmButton: false,
+                        timer: 3000
+                        })   
+
+                } else if (email !== confEmail && email && confEmail) {
+
+                    MySwal.fire({
+                        background: '#ffffff',
+                        color: '#001fff',
+                        position: 'center',
+                        icon: 'warning',
+                        iconColor: '#ff0000',
+                        title: 'Email incorrecto!',
+                        html: <h4>Los correos electronicos no coinciden, por favor vuelva a completarlos</h4>,
+                        showConfirmButton: false,
+                        timer: 3000
+                        })   
+
+                } else {
+
                     await batch.commit()
 
                     const orderRef = collection(db, 'orders')
@@ -88,19 +118,6 @@ const Checkout = () => {
                         confirmButtonColor: '#00b400',
                         confirmButtonText: 'OK'
                       })
-
-                } else {
-                    MySwal.fire({
-                        background: '#ffffff',
-                        color: '#001fff',
-                        position: 'center',
-                        icon: 'warning',
-                        iconColor: '#ff0000',
-                        title: 'Incompleto!',
-                        html: <h4>Complete todos los campos del formulario antes de continuar</h4>,
-                        showConfirmButton: false,
-                        timer: 2500
-                        })   
                 }
                 
             } else {
@@ -146,7 +163,7 @@ const Checkout = () => {
     return (
         <div className="divCheckout">
             <h2 className="checkout">CHECKOUT</h2>
-            <Form setName={setName} setTel={setTel} setEmail={setEmail} createOrder={createOrder}/>
+            <Form setName={setName} setTel={setTel} setEmail={setEmail} setConfEmail={setConfEmail} createOrder={createOrder}/>
         </div>
     )
     
